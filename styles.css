@@ -94,3 +94,28 @@ h1 {
 #password2 {
     margin-left: 13px;
 }
+
+#pwd-length {
+    color: #ffffff;
+}
+
+select {
+    background: #1C1C1C;
+    color: #FFFFFF;
+    text-align: center;
+    margin-left: 10px;
+    border: 1px solid #55F991;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.padding {
+    padding-top: 30px;
+}
+
+label {
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
+    
+    
+}
