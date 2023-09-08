@@ -20,7 +20,7 @@ body {
     background: #1F2937;
 }
 
-.test {
+.sub-cont {
     width: 448px;
 }
 
@@ -45,15 +45,13 @@ h1 {
     padding: 0;
 }
 
-#para {
-    font-family: 'Inter', sans-serif;
+.para {
     color: #D5D4D8;
     font-size: 20px;
     margin-bottom: 50px;
 }
 
 .btn {
-    font-family: 'Inter', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,12 +59,11 @@ h1 {
     height: 42px;
     background: #10B981;
     border-radius: 6px;
-    color: #FFFFFF;
     font-size: 16px;
 }
 
 #border {
-    margin: 40px 0;
+    margin: 30px 0;
     border-bottom: 1px solid #2F3E53;
 }
 
@@ -110,12 +107,20 @@ select {
 }
 
 .padding {
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
-label {
+.fieldset {
+    border: 1px solid #55F991;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+.para-copy {
+    font-size: 12px;
+}
+
+#font {
     font-family: 'Inter', sans-serif;
     color: #FFFFFF;
-    
-    
 }

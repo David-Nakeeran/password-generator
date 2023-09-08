@@ -4,6 +4,9 @@ const btn = document.querySelector('.btn');
 let pwd1 = document.querySelector('#password1');
 let pwd2 = document.querySelector('#password2');
 let pwdLength = document.querySelector("#pwd-length");
+let numbers = document.querySelector('#numbers');
+let symbols = document.querySelector('#symbols')
+
 
 // Password length global variable
 let passwordLength;
@@ -24,37 +27,78 @@ btn.addEventListener('click', () => {
     } else {
         generatePasswords();
     };
-})
+});
 
-// Listens for change of Select option value
+// Listens for change of Select option value - alter password length
 pwdLength.addEventListener('change', () => {
         passwordLength = pwdLength.value;
-    })    
+});
 
 
-// A function that generates a random string of characters from characters array. 
+// Generates passwords based on conditional checks. 
 function generatePasswords() {
-    for(let i = 0; i < passwordLength; i++) {
-        let indexOne = Math.trunc(Math.random() * characters.length);
-        console.log(indexOne);
-        let indexTwo = Math.trunc(Math.random() * characters.length);
-        pwd1.textContent += characters[indexOne];
-        pwd2.textContent += characters[indexTwo]; 
-    }
+        if(numbers.checked && symbols.checked) {
+            generatesArr(characters);
+        } else if(symbols.checked && !numbers.checked) {
+            const filteredArr = removeNumbers(characters);
+            generatesArr(filteredArr);
+        } else if(numbers.checked && !symbols.checked) {
+            const filteredArr = removeSpecialChars(characters);
+            generatesArr(filteredArr);
+        } else {
+            const filteredArr = filterCharacters(characters);
+            generatesArr(filteredArr);
+        }   
 };
 
 
 
-// 2) Copy on click on div, textContent if copied to clipboard
+// 2) Copy textContent of div to clipboard
 function copyToClipboard() {
-    const copy = document.querySelector('#password1');
-        copy.addEventListener('click', () =>{
-            navigator.clipboard.writeText(copy.textContent).then(() => {
+    const copy = document.querySelectorAll('.password');
+
+    for(let i = 0; i < copy.length; i++) {
+        copy[i].addEventListener('click', () =>{
+            navigator.clipboard.writeText(copy[i].textContent).then(() => {
                 alert('Copied to Clipboard');
             });
             
-        })    
-}
+        })   
+    };       
+};
 copyToClipboard();
 
-// 3) toggle symbols and numbers on/off
+
+// Filters array - removing special characters and numbers
+function filterCharacters(arr) {
+    let removed = removeNumbers(arr);
+    return removed = removeSpecialChars(removed);
+};
+
+// Removes numbers from array
+function removeNumbers(arr) {
+    const noNum = arr.filter((item) => {
+        return isNaN(item);
+    });
+    return noNum;
+};
+
+// Removes special characters from array
+function removeSpecialChars(arr) {
+    const str = arr.toString();
+    const strFiltered = str.replace(/([^\w ]|_)/g, '');
+    return strFiltered.split("");
+};
+
+
+
+// Generates an arr from arguments passed
+function generatesArr(filteredArr) {
+    for(let i = 0; i < passwordLength; i++) {
+        let indexOne = Math.trunc(Math.random() * filteredArr.length);
+        console.log(indexOne);
+        let indexTwo = Math.trunc(Math.random() * filteredArr.length);
+        pwd1.textContent += filteredArr[indexOne];
+        pwd2.textContent += filteredArr[indexTwo]; 
+    }
+};

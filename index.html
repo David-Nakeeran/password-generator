@@ -16,37 +16,47 @@
 <body>
     <div id="container">
         <div id="content-container">
-               <div class="test">
+               <div class="sub-cont">
                     <h1>Generate a
                     <div><span id="sub-heading">random password</span></div>
                     </h1>
-                    <p id="para">Never use an insecure password again.</p>
-                    <div class="btn">Generate passwords</div>
-                      <div class="padding">
-                        <label>Please pick password length
-                            
-                        <select id="pwd-length">
-                            <option value="">--Choose an option--</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                        </select>  
-                        </label>
-                    </div>    
+                    <p class="para" id="font">Never use an insecure password again.</p>
+                    <label id="font">Please pick password length
+                    <select id="pwd-length">
+                        <option value="">--Choose an option--</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>  
+                    </label>
+                        <fieldset class="fieldset" id="font">
+                            <legend>Include Numbers and/or Symbols</legend>
+                            <div>
+                                <input type="checkbox" id="numbers" name="numbers"/>
+                                <label id="font" for="numbers">Numbers</label>
+                            </div>
+                            <div>    
+                                <input type="checkbox" id="symbols" name="symbols"/>
+                                <label id="font" for="symobls">Symbols</label>
+                            </div>
+                        </fieldset>
+                    <div class="btn" id="font">Generate passwords</div>
+                    <div class="padding"></div>    
                 </div> 
-                <div class="test2">
+                <div>
                     <div id="border"></div>
                     <div class="password-container">
                         <div class="password" id="password1"></div>
                         <div class="password" id="password2"></div>
                     </div>
+                    <p class="para-copy" id="font">Please click on password to copy.</p>
                 </div>   
         </div>
     </div>
